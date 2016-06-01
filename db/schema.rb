@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531150819) do
+ActiveRecord::Schema.define(version: 20160601070300) do
+
+  create_table "blog_categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "blog_posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "blog_posts", ["user_id"], name: "index_blog_posts_on_user_id"
+
+  create_table "categories_posts", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "post_id",     null: false
+  end
+
+  add_index "categories_posts", ["category_id", "post_id"], name: "index_categories_posts_on_category_id_and_post_id"
+  add_index "categories_posts", ["post_id", "category_id"], name: "index_categories_posts_on_post_id_and_category_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

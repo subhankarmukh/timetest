@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  resources :blog_categories
+  resources :blog_posts
+  root to: 'blog_posts#index'
   devise_for :users
   resources :users
 end
