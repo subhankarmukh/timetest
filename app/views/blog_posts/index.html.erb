@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
-<p class="pull-right"><%= link_to 'New Blog post', new_blog_post_path, class: 'btn btn-primary' %></p>
+
+  <div id="btn_container_new_blog_post">
+    <p class="pull-right">
+        <%= link_to 'New Blog post', new_blog_post_path, class: 'btn btn-primary' if (can? :create, BlogPost.new) %>
+    </p>
+  </div>
+
+
 <h1>Listing Blog Posts</h1>
 
 <table class="table table-striped">

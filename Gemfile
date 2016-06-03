@@ -18,6 +18,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
+gem "rolify"
+gem "cancan"
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

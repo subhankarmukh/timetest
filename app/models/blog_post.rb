@@ -1,6 +1,8 @@
 class BlogPost < ActiveRecord::Base
 
-	belongs_to :user
+	resourcify
+
+	belongs_to :user, class_name: User
 
 	has_and_belongs_to_many :categories, class_name: BlogCategory,
 											  join_table: :categories_posts,
