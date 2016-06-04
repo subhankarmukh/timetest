@@ -11,7 +11,6 @@ class Ability
       elsif user.has_role? :user
           can :read, :all
           can :manage, BlogPost, user: user
-          can :create, BlogPost
       else
           can :read, :all
           

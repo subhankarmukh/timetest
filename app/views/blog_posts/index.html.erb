@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in? %>
   <div id="btn_container_new_blog_post">
     <p class="pull-right">
-        <%= link_to 'New Blog post', new_blog_post_path, class: 'btn btn-primary' if (can? :create, BlogPost.new) %>
+        <%= link_to 'New Blog post', new_blog_post_path, class: 'btn btn-primary' if (can? :create, current_user.blog_posts.new) %>
     </p>
   </div>
+<% end %>
 
 
 <h1>Listing Blog Posts</h1>
